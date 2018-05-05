@@ -1,3 +1,67 @@
+"""
+Answer
+The output is specified in the comments in the segment below:
+
+a.go()
+# go A go!
+
+b.go()
+# go A go!
+# go B go!
+
+c.go()
+# go A go!
+# go C go!
+ 
+d.go()
+# go A go!
+# go C go!
+# go B go!
+# go D go!
+
+e.go()
+# go A go!
+# go C go!
+# go B go!
+
+a.stop()
+# stop A stop!
+
+b.stop()
+# stop A stop!
+
+c.stop()
+# stop A stop!
+# stop C stop!
+
+d.stop()
+# stop A stop!
+# stop C stop!
+# stop D stop!
+
+e.stop()
+# stop A stop!
+ 
+a.pause()
+# ... Exception: Not Implemented
+
+b.pause()
+# ... Exception: Not Implemented
+
+c.pause()
+# ... Exception: Not Implemented
+
+d.pause()
+# wait D wait!
+
+e.pause()
+# ...Exception: Not Implemented
+Why do we care?
+Because OO programming is really, really important. Really. 
+Answering this question shows your understanding of inheritance and the use of Python's super function. 
+Most of the time the order of resolution doesn't matter. Sometimes it does, it depends on your application.
+"""
+
 class A(object):
     def go(self):
         print("go A go!")
