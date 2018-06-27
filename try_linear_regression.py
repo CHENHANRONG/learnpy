@@ -1,4 +1,4 @@
-from numpy import *
+import numpy as np
 
 
 def loadDataSet(fileName):
@@ -23,16 +23,16 @@ def loadDataSet(fileName):
 
 
 def standardLinearRegression(xArr,yArr):
-    xMat = mat(xArr)
-    trans_xMat = xMat.T  # xMat transpose
-    yMat = mat(yArr).T
-    xTx = xMat.T * xMat
-    inverse_xTx = xTx.I
-    if linalg.det(xMat) == 0.0:
+    xMat = np.mat(xArr)
+    yMat = np.mat(yArr).T
+    if np.linalg.det(np.transpose(xMat) * xMat) == 0.0:
         print("This matrix is singular, cannot do inverse")
         return
-    ws1 = inverse_xTx * (trans_xMat*yMat)  # ws = inverse(xTx)*(transpose(xMat)*yMat)
-    ws = linalg.solve(xMat, yMat)
+    # xTx = np.transpose(xMat) * xMat  # xT * x
+    # solve x * w = y => xT*x * w = xTy => solve w = inverse(transpose(x) * x) * transpose(x) * y
+    # ws1 = np.linalg.inv(np.transpose(xMat) * xMat) * ( np.transpose(xMat) * yMat)  # ws = inverse(xTx)*(transpose(xMat)*yMat)
+    # solve x * w= y => xT*x * w = xTy => solve w
+    ws = np.linalg.solve(np.transpose(xMat) * xMat, np.transpose(xMat) * yMat)
     return ws
 
 
